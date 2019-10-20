@@ -28,3 +28,20 @@ Load the template with cluster-admin user:
 # oc create -f https://raw.githubusercontent.com/gshipley/openshift3mlbparks/master/mlbparks-template-wildfly.json -n openshift
 `````
 
+
+
+oc new-project parksapp --display-name="Baseball Parks Application Stack"
+
+oc create -f /home/daniel/Projects/openshift3mlbparks/mlbparks-template-wildfly.json
+
+oc get templates
+oc new-app mlbparks-wildfly --name="myparks"
+oc logs -f bc/mlbparks
+
+ oc get templates -n openshift
+ oc edit template jenkins-pipeline-example -n openshift
+
+ oc edit template mlbparks-wildfly
+
+oc export all --as-template=myapplication -o json > mytemplate.json
+
